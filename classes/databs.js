@@ -1,6 +1,7 @@
 const fs = require ('fs')
 const {faker} = require ('@faker-js/faker')
-faker.locale = 'es'
+
+
 
 const normalizr = require('normalizr');
 const normalize = normalizr.normalize;
