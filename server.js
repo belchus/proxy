@@ -22,6 +22,7 @@ const mariaDB = require('./options/options');
 const sqlite3 = require('./options/options2')
 const numCPUs = require ('os').cpus().length
 
+
 app.engine('handlebars', engine({
     defaultLayout: false
 }))
@@ -34,7 +35,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(flash())
 app.use(session({
     store: MongoStore.create({
-        mongoUrl: 'mongodb+srv://belshus:<password>@cluster0.vu0bw1i.mongodb.net/?retryWrites=true&w=majority',
+        mongoUrl: 'mongodb+srv://belshus:belen1234@cluster0.vu0bw1i.mongodb.net/test',
         mongoOptions: {
             useNewUrlParser: true,
             useUnifiedTopology: true
@@ -200,7 +201,7 @@ function getInfo() {
     const path = process.cwd()
     const id = process.pid
     const info = {
-        args, plat, version, memoria, exe, id, path,numCPUs
+        args, plat, version, memoria, exe, id, path, numCPUs
     }
     return info
 }

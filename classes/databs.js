@@ -1,23 +1,22 @@
 const fs = require ('fs')
 const {faker} = require ('@faker-js/faker')
+faker.locale = 'es'
 
-
-
+//normalizr
 const normalizr = require('normalizr');
 const normalize = normalizr.normalize;
 const denormalize = normalizr.denormalize;
 const schema = normalizr.schema;
-
-
+//util
 const util = require('util')
 
-module.exports = class databs {
+module.exports = class DBHandler {
     constructor(options, tabla) {
         this.knex = require('knex')(options)
         this.tabla = tabla
     }
 
-    async myChat() {
+    async fileChecker() {
         const fileStructure= `
         [
             {
@@ -37,8 +36,8 @@ module.exports = class databs {
         }
     }
 
-    async saveMsn (object) {
-        await this.myChat()
+    async saveChat (object) {
+        await this.fileChecker()
         try{
             const datos = await fs.promises.readFile("./DB/chats.txt", 'utf-8')
             const data = JSON.parse(datos)
@@ -53,12 +52,10 @@ module.exports = class databs {
     }
 
     async getChat () {
-        await this.myChat()
+        await this.fileChecker()
         try{
             const datos = await fs.promises.readFile("./DB/chats.txt", 'utf-8')
             const data = JSON.parse(datos)
-
-
             const author = new schema.Entity('authors',{},{
                 idAttribute: "id"
             })
@@ -81,12 +78,11 @@ module.exports = class databs {
     }
 
 
-
     async saveProduct(object) {
         try {
             await this.knex(this.tabla).insert(object)
         } catch (error) {
-            console.log(`Error en la base de datos, ${error}`)
+            console.log('error!: ', error)
         }
     }
 
@@ -95,12 +91,11 @@ module.exports = class databs {
             let result = await this.knex.from(this.tabla).select("*")
             return result
         } catch (error) {
-            console.log('Error en la base de datos', error)
+            console.log('error!: ', error)
         }
     }
 
-
-
+    //randomizador de productos de prueba (faker)
     async randomProducts(cant = 5) {
         let objetos = []
         for (let i = 0; i < cant; i++) {

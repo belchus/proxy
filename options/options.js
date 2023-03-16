@@ -10,5 +10,7 @@ const mySql = {
 
 
 module.exports = {
-    mySql
-}
+
+    options: mySql
+    
+    }

@@ -6,5 +6,7 @@ const sqlite3 = {
 }
 
 module.exports = {
-    sqlite3
-}
+
+    options: sqlite3
+    
+    }
