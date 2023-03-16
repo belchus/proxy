@@ -1,6 +1,6 @@
 1-Modo "FORK":
 'nodemon server.js -p 8081 -m FORK'
-
+https://raw.githubusercontent.com/belchus/proxy/master/docs/consigna1.png
 2- Modo "CLUSTER":
 'nodemon server.js -p 8081 -m CLUSTER'
 
