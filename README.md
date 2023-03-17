@@ -13,7 +13,6 @@
 4-Iniciar con forever
 'forever start server.js'
 
-
 5-Listar los procesos de forever
 'forever list'
 ![imagen4](https://raw.githubusercontent.com/belchus/proxy/master/docs/respuestas/forever.png)
@@ -23,11 +22,11 @@
 
 7- Mi servidor en modo FORK
 'pm2 start server.js --name='ServerFork' --watch -- --p 8080'
-![imagen5](https://raw.githubusercontent.com/belchus/proxy/master/docs/respuestas/serverFORK.png)
+![imagen5](https://raw.githubusercontent.com/belchus/proxy/master/docs/respuestas/severFORK.png)
 
 8- Mi servidor en modo CLUSTER
 'pm2 start server.js --name='ServerCluster' --watch -i max -- --p 8082'
-![imagen6](https://raw.githubusercontent.com/belchus/proxy/master/docs/respuestas/serverCLUSTER.png)
+![imagen6](https://raw.githubusercontent.com/belchus/proxy/master/docs/respuestas/severCLUSTER.png)
 
 9-Se configuro Nginx para redirigir las consultas a /api/randoms a un cluster de servidores gestionado desde nginx. 
-![imagen7](https://raw.githubusercontent.com/belchus/proxy/master/docs/respuestas/servernginx.png)
+![imagen7](https://raw.githubusercontent.com/belchus/proxy/master/docs/respuestas/nginx.png)
